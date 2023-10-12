@@ -14,17 +14,16 @@ def romanToInt(s:str) -> int:
     currentSum=0
 
     for i in range(len(s)):
-    
 
-        if(roman[s[i]]<roman[s[i+1]]):
-            currentSum*=-1
-            continue;
-        elif(roman[s[i]]==roman[s[i+1]]):
+        if(i==n-1):
             currentSum+=roman[s[i]]
-            continue;
+            sum+=currentSum
+            break
+        if(roman[s[i]]<roman[s[i+1]]):
+            currentSum+=roman[s[i]]
+            currentSum*=-1
         else:
             currentSum+=roman[s[i]]
         sum+=currentSum
+        currentSum=0
     return sum
-
-        
